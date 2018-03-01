@@ -1,16 +1,17 @@
 import React from 'react';
 import { renderIf } from '../../../lib/utils';
 
-class CategoryForm extends React.Component {
+class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.category
-      ? this.props.category
-      : {
+    this.state = this.props.expense ?
+      this.props.expense :
+      {
         title: '',
         value: 0,
-        updating: false,
-      };
+        categoryId: this.props.categoryId,
+        editing: false,
+      },
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -22,34 +23,36 @@ class CategoryForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    !this.state.value || !this.state.title ? alert('Please fill out the fields.') : this.props.onComplete(this.state);
+    this.props.onComplete(this.state);
     this.setState({
       title: '',
       value: 0,
+      categoryId :this.props.categoryId,
     });
   }
 
   render() {
     return  (
-      <form className="category-form" onSubmit={this.handleSubmit}>
-        <input
+      
+      <form className="input-area" onSubmit={this.handleSubmit}>
+        <input className="input"
           type="text"
           name="title"
           placeholder="Title"
           value={this.state.title}
           onChange={this.handleChange}/>
 
-        <input
-          type="text"
+        <input className="input"
+          type="number"
           name="value"
           placeholder="Amount"
           value={this.state.value}
           onChange={this.handleChange}/>
 
-        <button type="submit">{this.props.buttonText}</button>
+        <button className="submit_btn" type="submit">{this.props.buttonText}</button>
       </form>
     );
   }
 }
 
-export default CategoryForm;
+export default ExpenseForm;
