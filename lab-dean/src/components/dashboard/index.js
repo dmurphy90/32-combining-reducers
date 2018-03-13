@@ -1,39 +1,38 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {categoryCreate} from '../../actions/category-actions';
-import CategoryItem from '../category/category-item/category-item';
-import CategoryForm from '../../components/category/category-form/category-form';
-import category from '../../reducers/category';
-import index from '../category/category-item/category-item';
+import {categoryCreate, categoryDelete} from '../../actions/category-actions';
+import CategoryForm from '../category/category-form/index';
+import CategoryItem from '../category/category-item/index';
+import ExpenseItem from '../expense/expense-item/index';
 
 class Dashboard extends React.Component {
   render() {
-    let totalSpend = this.props.categories.reduce((a, b) => a + parseInt(b.value), 0);
-
     return (
       <section>
         <h1>Track Your Spending Problems!</h1>
-        <h3 className="total">Total Spend: ${totalSpend}</h3>
         <CategoryForm
-          buttonText='Create'
+          buttonText="Create"
           onComplete={this.props.dashboardCategoryCreate}/>
 
         {this.props.categories ?
-          this.props.categories.map(category => 
+          this.props.categories.map(category =>
             <div key={category._id}>
-              <CategoryItem category={category}/>
+              <CategoryItem
+                category={category}
+                buttonText="Delete"/>
+
             </div>)
           :
           undefined
         }
-
       </section>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  categories: state,
+  categories: state.categories,
+  expenses: state.expenses,
 });
 
 const mapDispatchToProps = (dispatch, getState) => ({
