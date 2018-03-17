@@ -12,8 +12,6 @@ class ExpenseForm extends React.Component {
         editing: false,
       },
 
-
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }

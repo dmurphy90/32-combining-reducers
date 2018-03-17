@@ -1,4 +1,4 @@
-# 31 Redux
+# 32 Combining Reducers.
 
 ## Installation
 To install this app fork then clone the repo down to your own machine. Navigate to the directory named ```lab-dean``` and type ```npm install``` to get all of the NPM packages needed for the app. 

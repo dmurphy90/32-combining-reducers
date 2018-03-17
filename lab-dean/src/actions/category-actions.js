@@ -1,4 +1,4 @@
-import uuid from 'uuid/v4';
+import uuid from 'uuid/v1';
 
 export const categoryCreate = category => {
   category._id = uuid();
@@ -19,4 +19,4 @@ export const categoryDelete = category => ({
   payload: category,
 });
 
-export const categoryReset = () => ({type: 'CATEGORY_RESET'});
+export const categoryReset =  () => ({type: 'CATEGORY_RESET'});

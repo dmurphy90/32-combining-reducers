@@ -11,6 +11,7 @@ $text-color: #6AFDFF;
 h1 {
   font-size: 45px;
   color: $text-color;
+  text-decoration: underline;
 }
 
 fieldset {
@@ -23,6 +24,7 @@ input {
   background-color: $detail-color;
   color: $text-color;
   font-size: 20px;
+  border: none;
 }
 
 button {

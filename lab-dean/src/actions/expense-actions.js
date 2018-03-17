@@ -1,4 +1,4 @@
-import uuid from 'uuid/v4';
+import uuid from 'uuid/v1';
 
 export const expenseCreate = expense => {
   expense._id = uuid();
@@ -17,4 +17,8 @@ export const expenseUpdate = expense => ({
 export const expenseDelete = expense => ({
   type: 'EXPENSE_DELETE',
   payload: expense,
+});
+
+export const expenseReset = () => ({
+  type: 'EXPENSE_RESET',
 });

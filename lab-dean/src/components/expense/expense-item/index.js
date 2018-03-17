@@ -44,7 +44,7 @@ class ExpenseItem extends React.Component {
     return (
       <div className="expense-item" key={this.props.expense._id} onDoubleClick={this.handleEditing}>
         <h3>{this.props.expense.name}</h3>
-        <p>Cost: ${this.props.expense.price}</p>
+        <p>Price: ${this.props.expense.price}</p>
         <button type="button" onClick={this.handleDelete}>{this.props.buttonText}</button>
         {renderIf(this.state.editing, <ExpenseForm
           expense={this.props.expense}
